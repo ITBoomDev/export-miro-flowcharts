@@ -1,0 +1,56 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Онбординг користувача v2 - Miro</title>
+</head>
+<body>
+  Fake Miro board for the smoke test.
+  <script>
+    // Mimics the parts of window.miro the extension uses.
+    // Stable `board.get()` returns flowchart shapes as `stencil` without text, like real Miro.
+    // Every get() is slowed down by 300 ms and counted in window.__gets.
+    const sh = (id, shape, content, x, y, parentId) => ({
+      id, type: 'shape', shape: 'flow_chart_' + shape, content, x, y, width: 200, height: 80,
+      parentId, relativeTo: parentId ? 'parent_top_left' : 'canvas_center',
+    });
+    const C = (id, a, b, cap) => ({
+      id, type: 'connector', start: { item: a }, end: { item: b },
+      captions: cap ? [{ content: cap }] : [],
+      style: { startStrokeCap: 'none', endStrokeCap: 'stealth' },
+    });
+
+    window.__exp = [
+      { id: 'F1', type: 'frame', title: 'Авторизація', x: 0, y: 0, width: 1200, height: 1200 },
+      sh('a', 'terminator', '<p>Користувач відкриває застосунок</p>', 300, 100, 'F1'),
+      sh('b', 'decision', '<p>Є токен?</p>', 300, 300, 'F1'),
+      sh('c', 'process', '<p>Валідація токена</p>', 100, 500, 'F1'),
+      sh('d', 'process', '<p>Екран логіну</p>', 500, 500, 'F1'),
+      sh('e', 'terminator', '<p>Головний екран</p>', 300, 800, 'F1'),
+      { id: 'n1', type: 'sticky_note', content: 'Ліміт 3 спроби', x: 650, y: 560, parentId: 'F1', relativeTo: 'parent_top_left' },
+      C('1', 'a', 'b'), C('2', 'b', 'c', 'так'), C('3', 'b', 'd', 'ні'), C('4', 'c', 'e'), C('5', 'd', 'b', 'повтор'),
+    ];
+    window.__sel = [];
+    window.__gets = 0;
+
+    const handlers = {};
+    const slow = v => new Promise(r => setTimeout(() => r(v), 300));
+    window.__emit = ev => (handlers[ev] || []).forEach(h => h({ items: [] }));
+
+    window.miro = {
+      board: {
+        get: async f => {
+          window.__gets++;
+          return slow(f?.type
+            ? window.__exp.filter(i => i.type === f.type)
+            : window.__exp.map(i => (i.type === 'shape' ? { ...i, type: 'stencil', content: undefined } : i)));
+        },
+        getSelection: async () => window.__sel.map(id => ({ id })),
+        getInfo: async () => ({ id: 'uXjVtest=' }),
+        experimental: { get: async () => { window.__gets++; return slow(window.__exp); } },
+        ui: { on: async (ev, h) => { (handlers[ev] ||= []).push(h); } },
+      },
+    };
+  </script>
+</body>
+</html>

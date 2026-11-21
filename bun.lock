@@ -1,0 +1,21 @@
+{
+  "lockfileVersion": 2,
+  "configVersion": 0,
+  "workspaces": {
+    "": {
+      "name": "export-miro-flowcharts",
+      "devDependencies": {
+        "chrome-types": "^0.1.300",
+        "playwright-core": "^1.65.1",
+        "typescript": "^5.7.0",
+      },
+    },
+  },
+  "packages": {
+    "chrome-types": ["chrome-types@0.1.465", "", {}, "sha512-pbWvxOzinoMkXO9/QyFB2hHHw+mazKSPnU8iATS36frtkPu/3POobzyZNMeFSVShvzGd3i8n/RuKaXmJxee5og=="],
+
+    "playwright-core": ["playwright-core@1.65.1", "", { "bin": "cli.js" }, "sha512-hqPpz7blSMPxWVdoeE1yiBSzXsKiVOd2k+kjCvmUywD2GPO2Dd9HfcWnq9NN0GHbNZDFgZ9JfBFr+X5/BLo0qw=="],
+
+    "typescript": ["typescript@5.9.3", "", { "bin": { "tsc": "bin/tsc", "tsserver": "bin/tsserver" } }, "sha512-jl1vZzPDinLr9eUt3J/t7V6FgNEw9QjvBPdysz9KfQDD41fQrC2Y4vKQdiaUpFT4bXlb1RHhLpp8wtm6M5TgSw=="],
+  }
+}

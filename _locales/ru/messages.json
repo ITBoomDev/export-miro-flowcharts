@@ -1,0 +1,14 @@
+{
+  "extName": {
+    "message": "Export Miro Flowcharts — в LLM, Mermaid и JSON"
+  },
+  "extShortName": {
+    "message": "Export Miro Flowcharts"
+  },
+  "extDescription": {
+    "message": "Блок-схемы Miro в текст для LLM, Mermaid или JSON. Live-панель, шаблоны промптов, копирование одной клавишей. Работает локально."
+  },
+  "cmdCopy": {
+    "message": "Скопировать выделенную блок-схему с текущими настройками"
+  }
+}

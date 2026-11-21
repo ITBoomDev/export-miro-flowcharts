@@ -1,0 +1,23 @@
+{
+  "name": "export-miro-flowcharts",
+  "version": "0.3.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "bun test",
+    "smoke": "bun test/smoke/smoke.mjs",
+    "typecheck": "tsc -p jsconfig.json",
+    "check": "bun run test && bun run typecheck && bun run smoke",
+    "icons": "bun tools/icons.mjs",
+    "zip": "bun tools/zip.mjs"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "chrome-types": "^0.1.300",
+    "playwright-core": "^1.65.1",
+    "typescript": "^5.7.0"
+  },
+  "engines": {
+    "bun": ">=1.2"
+  }
+}

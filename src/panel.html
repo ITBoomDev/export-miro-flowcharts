@@ -1,0 +1,103 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="panel.css">
+</head>
+<body>
+  <!-- ───────── main view ───────── -->
+  <main id="view-main" class="view">
+    <header>
+      <div class="brand"><span class="logo">◆</span><span class="name">Export Miro Flowcharts</span></div>
+      <select id="lang" class="lang" data-i18n-title="lang_title"></select>
+    </header>
+    <div id="board" class="board-name" hidden></div>
+
+    <section class="controls">
+      <div class="row">
+        <div class="seg grow" id="seg-scope">
+          <button data-v="selection" data-i18n="scope_selection"></button>
+          <button data-v="board" data-i18n="scope_board"></button>
+        </div>
+        <button id="live" class="chip" data-i18n-title="live_title"><span class="dot"></span><span data-i18n="live"></span></button>
+        <button id="refresh" class="icon" data-i18n-title="refresh_title">↻</button>
+      </div>
+      <div class="seg" id="seg-format">
+        <button data-v="llm" data-i18n="fmt_llm"></button>
+        <button data-v="mermaid">Mermaid</button>
+        <button data-v="json">JSON</button>
+      </div>
+      <div class="row">
+        <select id="template" class="grow"></select>
+        <button id="edit-templates" class="icon" data-i18n-title="tpl_manage">✎</button>
+      </div>
+
+      <details id="opts">
+        <summary data-i18n="opts"></summary>
+        <div class="opts-grid">
+          <label class="sel"><span data-i18n="opt_legend"></span><select id="o-lang"></select></label>
+          <label class="sel"><span data-i18n="opt_mermaid"></span>
+            <select id="o-mermaidDir"><option>TD</option><option>LR</option><option>BT</option><option>RL</option></select>
+          </label>
+          <label><input type="checkbox" id="o-showTypes"><span data-i18n="opt_types"></span></label>
+          <label><input type="checkbox" id="o-includeNotes"><span data-i18n="opt_notes"></span></label>
+          <label><input type="checkbox" id="o-includeFrames"><span data-i18n="opt_frames"></span></label>
+          <label><input type="checkbox" id="o-includeIds"><span data-i18n="opt_ids"></span></label>
+        </div>
+      </details>
+    </section>
+
+    <div class="output">
+      <textarea id="out" readonly spellcheck="false"></textarea>
+      <div id="empty" class="empty" hidden></div>
+    </div>
+
+    <footer>
+      <div class="meta">
+        <span id="stats"></span>
+        <span id="tokens" class="badge" data-i18n-title="tokens_title"></span>
+      </div>
+      <div id="warn" class="warn" hidden></div>
+      <div class="actions">
+        <button id="copy" class="primary" data-i18n="copy"></button>
+        <button id="download" data-i18n="download"></button>
+      </div>
+      <div class="hint" id="hint-set">
+        <kbd id="shortcut"></kbd> <span data-i18n="hint_set"></span> ·
+        <a href="#" class="open-shortcuts" data-i18n="change"></a>
+      </div>
+      <div class="hint" id="hint-unset" hidden>
+        <a href="#" class="open-shortcuts" data-i18n="hint_unset_link"></a><span data-i18n="hint_unset_rest"></span>
+      </div>
+    </footer>
+  </main>
+
+  <!-- ───────── templates view ───────── -->
+  <main id="view-tpl" class="view" hidden>
+    <header>
+      <button id="tpl-back" class="icon" data-i18n-title="back">←</button>
+      <div class="brand"><span class="name" data-i18n="tpl_title"></span></div>
+    </header>
+    <section class="tpl-body">
+      <ul id="tpl-list" class="tpl-list"></ul>
+      <button id="tpl-new" data-i18n="tpl_new"></button>
+
+      <form id="tpl-form" hidden>
+        <input id="tpl-name" data-i18n-ph="tpl_name_ph" required>
+        <textarea id="tpl-text" rows="10" spellcheck="false"></textarea>
+        <div class="hint" id="tpl-hint"></div>
+        <div class="actions">
+          <button type="submit" class="primary" data-i18n="save"></button>
+          <button type="button" id="tpl-cancel" data-i18n="cancel"></button>
+          <span class="spacer"></span>
+          <button type="button" id="tpl-delete" class="danger" data-i18n="delete"></button>
+        </div>
+      </form>
+
+      <button id="tpl-reset" class="link" data-i18n="tpl_reset"></button>
+    </section>
+  </main>
+
+  <script type="module" src="panel.js"></script>
+</body>
+</html>

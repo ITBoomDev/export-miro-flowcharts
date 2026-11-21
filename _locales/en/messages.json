@@ -1,0 +1,14 @@
+{
+  "extName": {
+    "message": "Export Miro Flowcharts — to LLM, Mermaid & JSON"
+  },
+  "extShortName": {
+    "message": "Export Miro Flowcharts"
+  },
+  "extDescription": {
+    "message": "Turn Miro flowcharts into LLM-ready text, Mermaid or JSON. Live side panel, prompt templates, one-key copy. Runs locally."
+  },
+  "cmdCopy": {
+    "message": "Copy selected flowchart with current settings"
+  }
+}
