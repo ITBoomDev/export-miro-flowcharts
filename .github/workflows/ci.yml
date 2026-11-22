@@ -29,7 +29,7 @@ jobs:
       - run: bun run smoke
       - name: Build the store package
         run: bun run zip
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         with:
           name: export-miro-flowcharts
           path: dist/export-miro-flowcharts.zip
