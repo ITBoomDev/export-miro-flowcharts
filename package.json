@@ -33,7 +33,7 @@
   "devDependencies": {
     "chrome-types": "^0.1.300",
     "playwright-core": "^1.65.1",
-    "typescript": "^5.7.0"
+    "typescript": "^7.0.2"
   },
   "engines": {
     "bun": ">=1.2"
