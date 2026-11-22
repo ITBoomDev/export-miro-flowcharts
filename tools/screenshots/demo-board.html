@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Login flow - Miro</title>
+</head>
+<body>
+  <!-- Stand-in page for store screenshots. Mimics only the parts of window.miro the extension reads. -->
+  <script>
+    const sh = (id, shape, content, x, y) => ({
+      id, type: 'shape', shape: 'flow_chart_' + shape, content, x, y, width: 200, height: 80, relativeTo: 'canvas_center',
+    });
+    const C = (id, a, b, cap) => ({
+      id, type: 'connector', start: { item: a }, end: { item: b },
+      captions: cap ? [{ content: cap }] : [],
+      style: { startStrokeCap: 'none', endStrokeCap: 'stealth' },
+    });
+
+    window.__exp = [
+      sh('a', 'terminator', '<p>Start</p>', 300, 100),
+      sh('b', 'decision', '<p>Has token?</p>', 300, 300),
+      sh('c', 'process', '<p>Validate &amp; refresh</p>', 100, 500),
+      sh('d', 'process', '<p>Show login</p>', 500, 500),
+      sh('e', 'terminator', '<p>Done</p>', 300, 800),
+      { id: 'n1', type: 'sticky_note', content: 'Lock after 3 failed attempts', x: 700, y: 520, relativeTo: 'canvas_center' },
+      C('1', 'a', 'b'), C('2', 'b', 'c', 'yes'), C('3', 'b', 'd', 'no'), C('4', 'c', 'e'),
+      C('5', 'd', 'b', 'retry'), C('6', 'd', 'e'),
+    ];
+    window.__sel = [];
+
+    const handlers = {};
+    window.__emit = ev => (handlers[ev] || []).forEach(h => h({ items: [] }));
+    window.miro = {
+      board: {
+        get: async f => (f?.type
+          ? window.__exp.filter(i => i.type === f.type)
+          : window.__exp.map(i => (i.type === 'shape' ? { ...i, type: 'stencil', content: undefined } : i))),
+        getSelection: async () => window.__sel.map(id => ({ id })),
+        getInfo: async () => ({ id: 'demo' }),
+        experimental: { get: async () => window.__exp },
+        ui: { on: async (ev, h) => { (handlers[ev] ||= []).push(h); } },
+      },
+    };
+  </script>
+</body>
+</html>

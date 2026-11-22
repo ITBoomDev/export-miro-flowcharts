@@ -15,9 +15,9 @@ First public release. Verified on a real Miro board.
   request templates, Dependabot, `.editorconfig` and `.gitattributes`.
 - Project documents: `CONTRIBUTING.md`, `SECURITY.md`, `CODE_OF_CONDUCT.md`, `docs/PUBLISHING.md`.
 - Manifest `homepage_url` and package metadata (repository, bugs, keywords).
+- Store assets: `bun run screenshots` generates five 1280×800 screenshots and a 440×280 promo tile into `store/`.
 - Type checking: `bun run typecheck` (tsc `checkJs` over `src/` with JSDoc, `chrome-types` and
   `types/globals.d.ts`). No build step — Chrome still loads the vanilla ES modules directly.
-
 - `docs/PRIVACY.md` and `docs/STORE_LISTING.md`: privacy policy, single purpose, permission justifications.
 - README rewritten: install options, usage, format examples, templates, options, permissions, troubleshooting.
 

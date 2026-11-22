@@ -34,7 +34,7 @@ How a release gets from `main` to users. Listing texts and permission justificat
 
 1. Developer Dashboard → **New item** (first time) or the item → **Package → Upload new package**.
 2. **Store listing:** description from `STORE_LISTING.md`, category *Productivity*, language, screenshots
-   (1280×800 or 640×400, at least one) and the small promo tile (440×280).
+   (from `store/screenshots/`, regenerate with `bun run screenshots`) and the promo tile `store/promo-tile-440x280.png`.
 3. **Privacy:**
    - Single purpose: the statement in `STORE_LISTING.md`.
    - Permission justifications: the table in `STORE_LISTING.md`, one entry per permission and for the host.

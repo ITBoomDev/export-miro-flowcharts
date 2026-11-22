@@ -28,6 +28,7 @@
     "typecheck": "tsc -p jsconfig.json",
     "check": "bun run test && bun run typecheck && bun run smoke",
     "icons": "bun tools/icons.mjs",
+    "screenshots": "bun tools/screenshots.mjs",
     "zip": "bun tools/zip.mjs"
   },
   "devDependencies": {
