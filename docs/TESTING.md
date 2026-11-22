@@ -8,6 +8,8 @@ Written against the `node:test` API, run by `bun test` (they also run on Node 20
 - `test/format.test.mjs`: graph structure, loops vs merges, reversed arrows, notes, selection scope, formatters
 - `test/options.test.mjs`: frames grouped once, option toggles, uk/ru legends, Mermaid subgraphs,
   JSON options, templates, `render()` with the board name
+- `test/package.test.mjs`: release integrity (matching versions, CHANGELOG entry, manifest file references,
+  minimal permissions, store string limits, no network APIs in shipped source)
 - `test/i18n.test.mjs`: language detection, every key present in every language, CLDR plurals,
   translatable built-in templates, v0.2 → v3 settings migration, 3000-node performance budget (< 1.5 s)
 

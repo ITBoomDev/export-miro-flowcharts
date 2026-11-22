@@ -39,7 +39,10 @@ Note: relies on Miro's experimental in-page SDK, which Miro may change. Not affi
 
 ## Data usage disclosures
 
-- Collects user data: **No.** Remote code: **No.** Privacy policy: `docs/PRIVACY.md` (host it as a public URL).
+- Collects user data: **No.** Remote code: **No.**
+- Privacy policy URL: `https://github.com/ITBoomDev/export-miro-flowcharts/blob/main/docs/PRIVACY.md`
+- Homepage / support URL: `https://github.com/ITBoomDev/export-miro-flowcharts`
+- Submission steps: [`PUBLISHING.md`](PUBLISHING.md)
 
 ## Assets still needed
 

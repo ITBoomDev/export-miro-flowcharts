@@ -1,5 +1,5 @@
 // Generates icons/icon{16,32,48,128}.png — no dependencies, pure zlib PNG writer.
-// Design: indigo rounded square + white flowchart glyph (process box → decision diamond).
+// Design: warm yellow rounded square + dark flowchart glyph (process box → decision diamond).
 // Run: bun tools/icons.mjs
 
 import { deflateSync } from 'node:zlib';
@@ -11,9 +11,9 @@ const OUT = join(dirname(fileURLToPath(import.meta.url)), '..', 'icons');
 const SIZES = [16, 32, 48, 128];
 
 // colors
-const BG_TOP = [0x2b, 0x3c, 0xa4];    // indigo gradient top
-const BG_BOT = [0x18, 0x22, 0x66];    // indigo gradient bottom (brand #1e2a78 family)
-const FG = [0xff, 0xff, 0xff];
+const BG_TOP = [0xff, 0xd8, 0x4a];    // warm yellow (Miro-adjacent palette, not the Miro logo)
+const BG_BOT = [0xff, 0xc4, 0x1a];
+const FG = [0x1a, 0x1a, 0x3a];             // dark navy glyph
 
 // signed distances in normalized [0..1] space; negative = inside
 const sdRoundRect = (x, y, cx, cy, hw, hh, r) => {

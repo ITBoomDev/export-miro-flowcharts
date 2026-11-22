@@ -1,0 +1,21 @@
+name: Feature request
+description: Suggest an improvement
+labels: [enhancement]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: The problem
+      description: What are you trying to do, and what gets in the way?
+    validations:
+      required: true
+  - type: textarea
+    id: idea
+    attributes:
+      label: Proposed solution
+      description: What would you like to happen? Alternatives you considered are welcome too.
+  - type: markdown
+    attributes:
+      value: |
+        The project stays local-only, with no network requests, no build step and a minimal permission set.
+        Ideas that need any of those will be declined. See [CONTRIBUTING.md](https://github.com/ITBoomDev/export-miro-flowcharts/blob/main/CONTRIBUTING.md).

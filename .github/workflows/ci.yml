@@ -1,0 +1,36 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+      - run: bun install --frozen-lockfile
+      - run: bun run test
+      - run: bun run typecheck
+      - name: Install Chromium for the smoke test
+        run: bunx playwright-core install --with-deps chromium
+      - run: bun run smoke
+      - name: Build the store package
+        run: bun run zip
+      - uses: actions/upload-artifact@v4
+        with:
+          name: export-miro-flowcharts
+          path: dist/export-miro-flowcharts.zip
+          if-no-files-found: error

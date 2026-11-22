@@ -27,6 +27,13 @@ Uninstalling the extension removes all stored preferences. You can also clear th
 
 ## Contact
 
-Questions or concerns: open an issue in the project's GitHub repository.
+Questions or concerns: open an issue at <https://github.com/ITBoomDev/export-miro-flowcharts/issues>.
+For security matters, use a private
+[security advisory](https://github.com/ITBoomDev/export-miro-flowcharts/security/advisories/new).
+
+## Changes to this policy
+
+Any change is made in this file and recorded in the repository history. A change that adds data collection
+would require a new major version and updated store disclosures.
 
 _Export Miro Flowcharts is not affiliated with or endorsed by Miro. Miro is a trademark of its respective owner._

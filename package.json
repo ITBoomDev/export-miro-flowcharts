@@ -1,8 +1,27 @@
 {
   "name": "export-miro-flowcharts",
-  "version": "0.3.0",
+  "version": "1.0.0",
+  "description": "Chrome extension that exports Miro flowcharts to LLM-ready text, Mermaid and JSON.",
   "private": true,
   "type": "module",
+  "author": "ITBoomDev",
+  "license": "MIT",
+  "homepage": "https://github.com/ITBoomDev/export-miro-flowcharts#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ITBoomDev/export-miro-flowcharts.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ITBoomDev/export-miro-flowcharts/issues"
+  },
+  "keywords": [
+    "miro",
+    "llm",
+    "mermaid",
+    "chrome-extension",
+    "flowchart",
+    "manifest-v3"
+  ],
   "scripts": {
     "test": "bun test",
     "smoke": "bun test/smoke/smoke.mjs",
@@ -11,7 +30,6 @@
     "icons": "bun tools/icons.mjs",
     "zip": "bun tools/zip.mjs"
   },
-  "license": "MIT",
   "devDependencies": {
     "chrome-types": "^0.1.300",
     "playwright-core": "^1.65.1",

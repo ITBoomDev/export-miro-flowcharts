@@ -6,8 +6,9 @@ Miro has no flowchart export, and its public REST API and stable Web SDK return 
 (`miro.board.experimental`), which does return flowchart shapes with their text.
 
 Goal: a free, open-source tool and a Medium article (itboom.dev) about feeding diagrams to LLMs.
-Status: **v0.3.0**. Unit and smoke tests pass on a mocked board. **Not yet verified on a real Miro board.**
-Start with the "Verify on a real board" list in `docs/ROADMAP.md`.
+Status: **v1.0.0**, verified on a real Miro board by the maintainer (2026-11-22). Repo:
+`ITBoomDev/export-miro-flowcharts`. Remaining before the Chrome Web Store: screenshots and the promo tile
+(see `docs/ROADMAP.md`, `docs/PUBLISHING.md`).
 
 The user writes in Ukrainian. Reply in Ukrainian, concisely, with no filler. Code, comments, commits
 and docs are in English.
@@ -51,7 +52,8 @@ test/smoke/            smoke.mjs + mock-board.html (fake window.miro with counte
 tools/                 dev scripts (icons, zip) — dependency-free, run with bun
 types/globals.d.ts     ambient types for page globals (window.miro, __emfWatch); dev-only
 jsconfig.json          tsc checkJs config for `bun run typecheck`
-docs/                  ARCHITECTURE, MIRO_SDK_NOTES, DECISIONS, ROADMAP, TESTING
+.github/               CI + tag-driven release workflows, issue/PR templates, Dependabot
+docs/                  ARCHITECTURE, MIRO_SDK_NOTES, DECISIONS, ROADMAP, TESTING, PUBLISHING, PRIVACY, STORE_LISTING
 ```
 
 ## Hard rules
@@ -119,3 +121,4 @@ docs/                  ARCHITECTURE, MIRO_SDK_NOTES, DECISIONS, ROADMAP, TESTING
 - `docs/DECISIONS.md`: why things are the way they are (extension vs MCP, format, permissions, naming)
 - `docs/ROADMAP.md`: real-board verification list, store publishing checklist, backlog, article plan
 - `docs/TESTING.md`: unit, smoke, manual checklist
+- `docs/PUBLISHING.md`: release checklist and Chrome Web Store submission; `docs/STORE_LISTING.md` has the texts
